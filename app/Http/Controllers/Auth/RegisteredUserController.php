@@ -33,16 +33,21 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        if($request->password !== $request->Rpassword){
+            $caracteresMinimos = "La contraseña debe poseer al menos 8 caracteres";
+            return view('auth.register', compact('caracteresMinimos'));
+        }
+
+        if($request->password !== $request->Rpassword){
+            $error = "Las contraseñas no coinciden";
+            return view('auth.register', compact('error'));
+        }
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role_id'=>2,
         ]);
 
         event(new Registered($user));

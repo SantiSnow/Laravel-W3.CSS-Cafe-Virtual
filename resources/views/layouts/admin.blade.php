@@ -16,6 +16,7 @@
   <a href="{{ url('/') }}" class="w3-bar-item w3-button">Articulos</a>
   <a href="{{ url('/') }}" class="w3-bar-item w3-button">Nueva Obra</a>
   <a href="{{ url('/') }}" class="w3-bar-item w3-button">Usuarios</a>
+  <a href="{{ url('/logout') }}" class="w3-bar-item w3-button">Salir</a>
 </div>
 
 

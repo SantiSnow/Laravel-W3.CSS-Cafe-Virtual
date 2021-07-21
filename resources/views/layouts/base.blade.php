@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>W3.CSS Template</title>
+    <title>Cafeteria de libros Virtual - El cafe virtual</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -35,6 +35,7 @@
 <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-large w3-animate-left" id="mySidebar">
     <a href="#" onclick="cerrarMenu()" class="w3-button" id="closeMenu"><i class="fas fa-times"></i></a>
 
+    <a href="{{ url('/') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Inicio</a>
     <a href="" onclick="cerrarMenu()" class="w3-bar-item w3-button">Libros</a>
     <a href="" onclick="cerrarMenu()" class="w3-bar-item w3-button">Articulos</a>
     <a href="{{ url('/login') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Mi cuenta</a>
@@ -45,7 +46,7 @@
     <div class="w3-white w3-xlarge" id="topBarContainer">
 
         <div class="w3-button w3-padding-16 w3-left" onclick="abrirMenu()"> <i class="fas fa-bars"></i> </div>
-        <div class="w3-right w3-padding-16"></div>
+        <div class="w3-right w3-padding-16"><form action="{{ url('/buscar-libros') }}" method="post">@csrf</form></div>
         <div class="w3-center w3-padding-16">El Cafe Virtual</div>
 
     </div>

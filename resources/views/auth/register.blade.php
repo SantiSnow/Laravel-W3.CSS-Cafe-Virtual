@@ -1,59 +1,56 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.base')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+<style>
+    #form-login-row{
+        margin-top: 10%;
+    }
+    #loginForm{
+        padding: 5%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+    .w3-card-4{
+        width: 50%;
+        margin: auto;
+    }
+</style>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+@section('contenido')
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+    <div class="w3-row" id="form-login-row">
+        <div class="w3-col" style="width:100%">
+            <form method="POST" action="{{ route('register') }}" class="w3-container w3-card-4 w3-light-grey" id="loginForm">
+                <h2>Registro</h2>
+                @csrf
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+                <label for="email">Nombre</label>
+                <input class="w3-input w3-border"  type="text" name="name" placeholder="Ingrese su nombre" required />
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                <br />
+                <label for="email">Correo electrónico</label>
+                <input class="w3-input w3-border"  type="email" name="email" placeholder="Ingrese su email" required />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+                <br />
+                <label for="password">Contraseña (mínimo 8 caracteres)</label>
+                <input class="w3-input w3-border" type="password" name="password" minlength="8" placeholder="Ingrese su contraseña" required />
+                @if(isset($caracteresMinimos))
+                    <span style="color: red;">{{ $caracteresMinimos }}</span><br>
+                @endif
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <br />
+                <label for="Rpassword">Repertir Contraseña</label>
+                <input class="w3-input w3-border" type="password" name="Rpassword" placeholder="Repita la contraseña" required />
+                @if(isset($error))
+                    <span style="color: red;">{{ $error }}</span><br>
+                @endif
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+                <br />
+                <button type="submit" class="w3-button w3-black w3-round-small">Ingresar</button>
+                <br />
+                <br />
+                <a href="{{ url('/login') }}"><small>¿Ya posee cuenta?</small></a>
+            </form>
+        </div>
+    </div>
+    
+@endsection
