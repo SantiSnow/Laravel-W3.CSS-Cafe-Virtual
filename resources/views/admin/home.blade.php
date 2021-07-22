@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('contenido')
 
-<div class="w3-container">
+    <div class="w3-container">
         <h1>Administración</h1>
     </div>
 
@@ -10,7 +10,6 @@
     </div>
 
     <div class="w3-container">
-    
         <div class="w3-third">
             <div class="w3-card-4" style="width:70%">
                 <header class="w3-container w3-light-grey">

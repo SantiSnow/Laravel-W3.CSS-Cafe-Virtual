@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EliminarRecursosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,15 @@ Route::get('/', [HomeController::class, 'home']);
 Route::group(['Middleware'=>'auth'], function (){
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-    
+    Route::get('/admin-libros', [DashboardController::class, 'getLibros']);
+
+    Route::get('/admin-articulos', [DashboardController::class, 'getArticulos']);
+
+    Route::delete('/eliminar-libro', [EliminarRecursosController::class, 'eliminarLibro']);
+
+    Route::get('/libros-eliminados', [DashboardController::class, 'librosEliminados']);
+
+    Route::post('/restaurar-libro', [EliminarRecursosController::class, 'restaurarLibro']);
 });
 
 require __DIR__.'/auth.php';

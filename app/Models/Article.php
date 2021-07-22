@@ -20,4 +20,12 @@ class Article extends Model
         'genre_id',
         'clasification_id',
     ];
+
+    public function genre(){
+        return $this->belongsTo(Genre::class);
+    }
+
+    public function clasification(){
+        return $this->belongsTo(Clasification::class);
+    }
 }
