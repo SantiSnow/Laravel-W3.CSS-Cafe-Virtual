@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,15 @@ class DashboardController extends Controller
         }
         $articulos = Article::onlyTrashed()->get();
         return view('admin.libros-eliminados', compact('articulos'));
+    }
+
+    public function getGeneros(){
+        $user = Auth::user();
+        if($user->role_id != 1){
+            return redirect('/');
+        }
+        $genres = Genre::all();
+        return view('admin.generos', compact('genres'));
     }
 
     public function nuevoLibro(Request $request){

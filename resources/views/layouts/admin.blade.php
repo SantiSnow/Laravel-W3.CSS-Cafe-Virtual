@@ -13,9 +13,9 @@
   <h3 class="w3-bar-item">Panel de administración</h3>
   <a href="{{ url('/admin-libros') }}" class="w3-bar-item w3-button">Libros</a>
   <a href="{{ url('/admin-articulos') }}" class="w3-bar-item w3-button">Articulos</a>
-  <a href="{{ url('/') }}" class="w3-bar-item w3-button">Nueva Obra</a>
-  <a href="{{ url('/') }}" class="w3-bar-item w3-button">Géneros</a>
-  <a href="{{ url('/') }}" class="w3-bar-item w3-button">Usuarios</a>
+  <a href="{{ url('/admin-libros') }}" class="w3-bar-item w3-button">Nueva Obra</a>
+  <a href="{{ url('/admin-generos') }}" class="w3-bar-item w3-button">Géneros</a>
+  <a href="{{ url('/admin-usuarios') }}" class="w3-bar-item w3-button">Usuarios</a>
   <a href="{{ url('/logout') }}" class="w3-bar-item w3-button">Salir</a>
 </div>
 

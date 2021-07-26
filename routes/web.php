@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EliminarRecursosController;
 use App\Http\Controllers\LibrosController;
 use App\Http\Controllers\ArticulosController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,12 @@ Route::group(['Middleware'=>'auth'], function (){
     Route::get('/admin-libros', [DashboardController::class, 'getLibros']);
 
     Route::get('/admin-articulos', [DashboardController::class, 'getArticulos']);
+
+    
+    Route::get('/admin-usuarios', [UsersController::class, 'getUsers']);
+
+    Route::get('/admin-generos', [DashboardController::class, 'getGeneros']);
+
 
     Route::delete('/eliminar-libro', [EliminarRecursosController::class, 'eliminarLibro']);
 
