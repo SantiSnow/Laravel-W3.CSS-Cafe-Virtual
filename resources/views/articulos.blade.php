@@ -23,6 +23,20 @@
     </style>
 </head>
 @section('contenido')
+    
+    <div class="w3-row">
+        <div class="w3-center w3-padding-16">
+            <h4>Libros</h4>
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-center w3-padding-16">
+            <p>Aquí puede encontrar todos los artículos de plataforma, obras completas con contenido sobre temas 
+                interesantes. En cada uno, podrás acceder a una introducción sobre dicho tema, y tener una mirada
+                amplia en la disciplina.</p>
+        </div>
+    </div>
+    
 
     <div class="w3-main w3-content w3-padding" id="contenido">
         <div class="w3-row-padding w3-padding-16 w3-center">

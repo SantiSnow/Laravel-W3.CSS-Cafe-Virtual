@@ -36,8 +36,9 @@
     <a href="#" onclick="cerrarMenu()" class="w3-button" id="closeMenu"><i class="fas fa-times"></i></a>
 
     <a href="{{ url('/') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Inicio</a>
-    <a href="" onclick="cerrarMenu()" class="w3-bar-item w3-button">Libros</a>
-    <a href="" onclick="cerrarMenu()" class="w3-bar-item w3-button">Articulos</a>
+    <a href="{{ url('/libros') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Libros</a>
+    <a href="{{ url('/articulos') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Articulos</a>
+    <a href="{{ url('/generos') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Géneros</a>
     <a href="{{ url('/login') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Mi cuenta</a>
     @auth <a href="{{ url('/logout') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Cerrar Sesión</a> @endauth
 </nav>

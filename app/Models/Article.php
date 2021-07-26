@@ -15,6 +15,7 @@ class Article extends Model
         'title',
         'author',
         'description',
+        'content',
         'image',
         'pages',
         'genre_id',

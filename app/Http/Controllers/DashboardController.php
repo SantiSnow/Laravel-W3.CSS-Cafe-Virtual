@@ -51,4 +51,35 @@ class DashboardController extends Controller
         $articulos = Article::onlyTrashed()->get();
         return view('admin.libros-eliminados', compact('articulos'));
     }
+
+    public function nuevoLibro(Request $request){
+        $user = Auth::user();
+        if($user->role_id != 1){
+            return redirect('/');
+        }
+
+        $imageName = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('public', $imageName);
+        $extension = $request->file('image')->extension();
+
+        $pdfName = $request->file('pdf')->getClientOriginalName();
+        $pdf = $request->file('pdf')->storeAs('public', $pdfName);
+        $extension = $request->file('image')->extension();
+
+        $libro = new Article();
+
+        $libro->title = $request->get('title');
+        $libro->author = $request->get('author');
+        $libro->description = $request->get('description');
+        $libro->content = $request->get('content');
+        $libro->image = $imageName;
+        $libro->pdf = $pdfName;
+        $libro->pages = $request->get('pages');
+        $libro->genre_id = $request->get('genre_id');
+        $libro->clasification_id = $request->get('clasification_id');
+        
+        $libro->save();
+
+        return redirect('/admin-libros');
+    }
 }

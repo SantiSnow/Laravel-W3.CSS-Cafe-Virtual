@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EliminarRecursosController;
+use App\Http\Controllers\LibrosController;
+use App\Http\Controllers\ArticulosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,12 @@ use App\Http\Controllers\EliminarRecursosController;
 
 Route::get('/', [HomeController::class, 'home']);
 
+Route::get('/libros', [LibrosController::class, 'libros']);
+
+Route::get('/articulos', [ArticulosController::class, 'articulos']);
+
+Route::get('/articulo/{id}', [HomeController::class, 'articulo']);
+
 Route::group(['Middleware'=>'auth'], function (){
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -31,6 +39,8 @@ Route::group(['Middleware'=>'auth'], function (){
     Route::get('/libros-eliminados', [DashboardController::class, 'librosEliminados']);
 
     Route::post('/restaurar-libro', [EliminarRecursosController::class, 'restaurarLibro']);
+
+    Route::post('/nuevoLibro', [DashboardController::class, 'nuevoLibro']);
 });
 
 require __DIR__.'/auth.php';

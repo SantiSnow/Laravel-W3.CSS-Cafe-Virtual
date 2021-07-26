@@ -16,5 +16,20 @@ class HomeController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function articulo($id){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $article = Article::find($id);
+        
+        return view('articulo', [
+            'article' => $article,
+            'user' => $user,
+        ]);
+    }
 }
 
