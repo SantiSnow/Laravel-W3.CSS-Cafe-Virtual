@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Genre;
+use App\Models\Clasification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,8 +32,9 @@ class DashboardController extends Controller
         if($user->role_id != 1){
             return redirect('/');
         }
+        $clasif = Clasification::all();
         $articulos = Article::where('clasification_id', 2)->get();
-        return view('admin.libros', compact('articulos'));
+        return view('admin.libros', compact('articulos'), compact('clasif'));
     }
 
     public function getArticulos(){
@@ -40,6 +42,7 @@ class DashboardController extends Controller
         if($user->role_id != 1){
             return redirect('/');
         }
+        $clasif = Clasification::all();
         $articulos = Article::where('clasification_id', 1)->get();
         return view('admin.articulos', compact('articulos'));
     }

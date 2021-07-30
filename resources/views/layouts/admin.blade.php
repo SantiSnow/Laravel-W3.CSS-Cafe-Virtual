@@ -11,6 +11,7 @@
 
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
   <h3 class="w3-bar-item">Panel de administración</h3>
+  <a href="{{ url('/') }}" class="w3-bar-item w3-button">Ir al sitio</a>
   <a href="{{ url('/admin-libros') }}" class="w3-bar-item w3-button">Libros</a>
   <a href="{{ url('/admin-articulos') }}" class="w3-bar-item w3-button">Articulos</a>
   <a href="{{ url('/admin-libros') }}" class="w3-bar-item w3-button">Nueva Obra</a>

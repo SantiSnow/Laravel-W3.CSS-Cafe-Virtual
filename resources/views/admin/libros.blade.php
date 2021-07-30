@@ -31,8 +31,9 @@
                     <label for="clasification_id">Clasificación</label>
                     <select name="clasification_id" class="w3-select w3-border">
                         <option value="" disabled selected>Seleccione la opción</option>
-                        <option value="1">Artículo</option>
-                        <option value="2">Ebook</option>
+                        @foreach($clasif as $clas)
+                        <option value="{{ $clas->id }}">{{ $clas->name }}</option>
+                        @endforeach
                     </select>
                     <br /><br />
                     

@@ -16,4 +16,9 @@ class UsersController extends Controller
         $users = User::all();
         return view('admin.users', compact('users'));
     }
+
+    public function profile(){
+        $user = Auth::user();
+        return view('profile', compact('user'));
+    }
 }

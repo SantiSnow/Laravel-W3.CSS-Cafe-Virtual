@@ -31,9 +31,11 @@
     </div>
     <div class="w3-row">
         <div class="w3-center w3-padding-16">
-            <p>Aquí puede encontrar todos los artículos de plataforma, obras completas con contenido sobre temas 
-                interesantes. En cada uno, podrás acceder a una introducción sobre dicho tema, y tener una mirada
-                amplia en la disciplina.</p>
+            @if($articles->count() > 0)
+                <p>Estos libros se acercan o asemejan a los parámetros que acaba de buscar, esperemos que encuentre lo que desea.</p>
+            @else
+                <p>Lo sentimos, parece que no tenemos ninguna obra que se asemeje a los términos buscados.</p>
+            @endif
         </div>
     </div>
     
@@ -44,7 +46,7 @@
                 <div class="w3-quarter">
                     <img src="{{ url('storage/'.$article->image) }}" alt="" class="preview">
                     <a href="{{ url('/articulo/'.$article->id) }}"><h3>{{ $article->title }}</h3></a>
-                    <p class="word-break">{{ $article->description  }}</p>
+                    <p class="word-break">{{ $article->description }}</p>
                     <a class="w3-btn w3-blue" href="{{ url('/articulo/'.$article->id) }}">Leer más</a>
                 </div>
             @endforeach

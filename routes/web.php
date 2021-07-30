@@ -8,6 +8,7 @@ use App\Http\Controllers\EliminarRecursosController;
 use App\Http\Controllers\LibrosController;
 use App\Http\Controllers\ArticulosController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\BuscadorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,18 +29,19 @@ Route::get('/articulos', [ArticulosController::class, 'articulos']);
 
 Route::get('/articulo/{id}', [HomeController::class, 'articulo']);
 
-Route::group(['Middleware'=>'auth'], function (){
+Route::post('/buscar-articulos', [BuscadorController::class, 'buscar']);
+
+Route::group(['middleware'=>'auth'], function (){
+
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/admin-libros', [DashboardController::class, 'getLibros']);
 
     Route::get('/admin-articulos', [DashboardController::class, 'getArticulos']);
-
     
     Route::get('/admin-usuarios', [UsersController::class, 'getUsers']);
 
     Route::get('/admin-generos', [DashboardController::class, 'getGeneros']);
-
 
     Route::delete('/eliminar-libro', [EliminarRecursosController::class, 'eliminarLibro']);
 
@@ -48,6 +50,8 @@ Route::group(['Middleware'=>'auth'], function (){
     Route::post('/restaurar-libro', [EliminarRecursosController::class, 'restaurarLibro']);
 
     Route::post('/nuevoLibro', [DashboardController::class, 'nuevoLibro']);
+
+    Route::get('/profile', [UsersController::class, 'profile']);
 });
 
 require __DIR__.'/auth.php';

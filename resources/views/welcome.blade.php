@@ -18,7 +18,7 @@
             text-align: center;
         }
         .w3-quarter{
-            margin-bottom: 2%;
+            margin-bottom: 5%;
         }
     </style>
 </head>
@@ -31,6 +31,7 @@
                     <img src="{{ url('storage/'.$article->image) }}" alt="" class="preview">
                     <a href="{{ url('/articulo/'.$article->id) }}"><h3>{{ $article->title  }}</h3></a>
                     <p class="word-break">{{ $article->description  }}</p>
+                    <a class="w3-btn w3-blue" href="{{ url('/articulo/'.$article->id) }}">Leer más</a>
                 </div>
             @endforeach
         </div>

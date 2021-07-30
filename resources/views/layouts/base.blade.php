@@ -9,7 +9,9 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <style>
         .w3-bar-block .w3-bar-item {
-            padding: 20px
+            padding: 10px; 
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         #mySidebar{
             display:none;
@@ -28,27 +30,55 @@
         #footer{
             margin-top:100px;
         }
+        .inputs{
+            width: 25%;
+            position: absolute;
+            right: 5px;
+            border: none;
+            border-radius: 3px;
+            padding: 2px;
+            background-color: white;
+            background-image: url("{{url('/images/lupa.png')}}");
+            background-size: 8%;
+            background-position: 10px;
+            background-repeat: no-repeat;
+            padding-left: 40px;
+        }
+        .inputs:focus{
+            border: none;
+        }
+        .w3-button:hover{
+            background-color: "#33ccff" !important;
+        }
+        .home-link{
+            text-decoration: none;
+        }
+        .home-link:hover{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
 <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-large w3-animate-left" id="mySidebar">
-    <a href="#" onclick="cerrarMenu()" class="w3-button" id="closeMenu"><i class="fas fa-times"></i></a>
+    <a href="#" onclick="cerrarMenu()" class="w3-btn" id="closeMenu"><i class="fas fa-times"></i></a>
 
-    <a href="{{ url('/') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Inicio</a>
-    <a href="{{ url('/libros') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Libros</a>
-    <a href="{{ url('/articulos') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Articulos</a>
-    <a href="{{ url('/generos') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Géneros</a>
-    <a href="{{ url('/login') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Mi cuenta</a>
-    @auth <a href="{{ url('/logout') }}" onclick="cerrarMenu()" class="w3-bar-item w3-button">Cerrar Sesión</a> @endauth
+    <a href="{{ url('/') }}" onclick="cerrarMenu()" class="w3-bar-item w3-btn">Inicio</a>
+    <a href="{{ url('/libros') }}" onclick="cerrarMenu()" class="w3-bar-item w3-btn">Libros</a>
+    <a href="{{ url('/articulos') }}" onclick="cerrarMenu()" class="w3-bar-item w3-btn">Articulos</a>
+    <a href="{{ url('/generos') }}" onclick="cerrarMenu()" class="w3-bar-item w3-btn">Géneros</a>
+    <a href="{{ url('/profile') }}" onclick="cerrarMenu()" class="w3-bar-item w3-btn">Mi cuenta</a>
+    @auth <a href="{{ url('/logout') }}" onclick="cerrarMenu()" class="w3-bar-item w3-btn">Cerrar Sesión</a> @endauth
 </nav>
 
 <div class="w3-top" id="topBar">
-    <div class="w3-white w3-xlarge" id="topBarContainer">
+    <div class="w3-xlarge w3-blue" id="topBarContainer">
 
-        <div class="w3-button w3-padding-16 w3-left" onclick="abrirMenu()"> <i class="fas fa-bars"></i> </div>
-        <div class="w3-right w3-padding-16"><form action="{{ url('/buscar-libros') }}" method="post">@csrf</form></div>
-        <div class="w3-center w3-padding-16">El Cafe Virtual</div>
+        <div class="w3-btn w3-padding-16 w3-left" onclick="abrirMenu()"> <i class="fas fa-bars"></i> </div>
+        <div class="w3-right w3-padding-16">
+            <form action="{{ url('/buscar-articulos') }}" method="post">@csrf <input type="search" name="busqueda" class="inputs" id=""> </form>
+        </div>
+        <div class="w3-center w3-padding-16"><a class="home-link" href="{{ url('/') }}"> El Cafe Virtual </a></div>
 
     </div>
 </div>
