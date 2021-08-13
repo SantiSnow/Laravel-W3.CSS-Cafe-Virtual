@@ -26,6 +26,9 @@
 
     <div class="w3-main w3-content w3-padding" id="contenido">
         <div class="w3-row-padding w3-padding-16 w3-center">
+            <h4>Artículos cortos e Informes</h4>
+        </div>
+        <div class="w3-row-padding w3-padding-16 w3-center">
             @foreach($articles as $article)
                 <div class="w3-quarter">
                     <img src="{{ url('storage/'.$article->image) }}" alt="" class="preview">
@@ -44,6 +47,34 @@
             </div>
         </div>
     </div>
+
+
+    <div class="w3-main w3-content w3-padding" id="contenido">
+        <div class="w3-row-padding w3-padding-16 w3-center">
+            <h4>Artículos cortos e Informes</h4>
+        </div>
+        <div class="w3-row-padding w3-padding-16 w3-center">
+            @foreach($ebooks as $article)
+                <div class="w3-quarter">
+                    <img src="{{ url('storage/'.$article->image) }}" alt="" class="preview">
+                    <a href="{{ url('/articulo/'.$article->id) }}"><h3>{{ $article->title  }}</h3></a>
+                    <p class="word-break">{{ $article->description  }}</p>
+                    <a class="w3-btn w3-blue" href="{{ url('/articulo/'.$article->id) }}">Leer más</a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+        
+
+    <div class="w3-display-container">
+        <div class="w3-row">
+            <div class="w3-third w3-display-topmiddle">
+                {{ $ebooks->links() }}
+            </div>
+        </div>
+    </div>
+
+
 
 
 @endsection
