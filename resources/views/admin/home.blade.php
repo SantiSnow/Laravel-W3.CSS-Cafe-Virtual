@@ -20,7 +20,7 @@
                     <p>Desde aquí puede administrar los libros en el sistema.</p>
                     <br>
                 </div>
-                <a class="w3-button w3-block w3-dark-grey" href="{{ url('/') }}">Administrar</a>
+                <a class="w3-button w3-block w3-dark-grey" href="{{ url('/admin-libros') }}">Administrar</a>
             </div>
         </div>
     
@@ -34,7 +34,7 @@
                     <p>Desde aquí puede administrar los artículos en el sistema.</p>
                     <br>
                 </div>
-                <a class="w3-button w3-block w3-dark-grey" href="{{ url('/') }}">Administrar</a>
+                <a class="w3-button w3-block w3-dark-grey" href="{{ url('/admin-articulos') }}">Administrar</a>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                     <p>Desde aquí puede administrar a los usuarios en el sistema.</p>
                     <br>
                 </div>
-                <a class="w3-button w3-block w3-dark-grey" href="{{ url('/') }}">Administrar</a>
+                <a class="w3-button w3-block w3-dark-grey" href="{{ url('/admin-usuarios') }}">Administrar</a>
             </div>
         </div>
     </div>
