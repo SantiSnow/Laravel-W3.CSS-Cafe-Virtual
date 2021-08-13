@@ -60,7 +60,7 @@
 </head>
 <body>
 
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-large w3-animate-left" id="mySidebar">
+<nav class="w3-sidebar w3-blue w3-bar-block w3-card w3-top w3-large w3-animate-left" id="mySidebar">
     <a href="#" onclick="cerrarMenu()" class="w3-btn" id="closeMenu"><i class="fas fa-times"></i></a>
 
     <a href="{{ url('/') }}" onclick="cerrarMenu()" class="w3-bar-item w3-btn">Inicio</a>

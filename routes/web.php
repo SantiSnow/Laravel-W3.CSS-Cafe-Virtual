@@ -29,6 +29,10 @@ Route::get('/articulos', [ArticulosController::class, 'articulos']);
 
 Route::get('/articulo/{id}', [HomeController::class, 'articulo']);
 
+Route::get('/generos', [HomeController::class, 'generos']);
+
+Route::get('/genero/{id}', [HomeController::class, 'genero']);
+
 Route::post('/buscar-articulos', [BuscadorController::class, 'buscar']);
 
 Route::group(['middleware'=>'auth'], function (){
